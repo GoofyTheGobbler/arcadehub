@@ -1,0 +1,30 @@
+[
+  {
+    "id": "2048",
+    "title": "2048",
+    "description": "Join the numbers and get to the 2048 tile!",
+    "url": "https://gabrielecirulli.github.io/2048/",
+    "thumbnail": "https://picsum.photos/seed/2048/400/300"
+  },
+  {
+    "id": "hextris",
+    "title": "Hextris",
+    "description": "An addictive puzzle game inspired by Tetris.",
+    "url": "https://hextris.io/",
+    "thumbnail": "https://picsum.photos/seed/hextris/400/300"
+  },
+  {
+    "id": "pacman",
+    "title": "Pacman",
+    "description": "The classic arcade game. Eat all the dots!",
+    "url": "https://google-pacman.github.io/",
+    "thumbnail": "https://picsum.photos/seed/pacman/400/300"
+  },
+  {
+    "id": "snake",
+    "title": "Snake",
+    "description": "Classic snake game. Don't hit the walls!",
+    "url": "https://www.google.com/logos/2010/pacman10-i.html",
+    "thumbnail": "https://picsum.photos/seed/snake/400/300"
+  }
+]
