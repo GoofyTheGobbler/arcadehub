@@ -1,23 +1,30 @@
 [
   {
     "id": "osu",
-    "title": "osu!",
-    "description": "A rhythm game based on the gameplay of a variety of popular commercial rhythm games.",
-    "url": "https://webosu.online/",
-    "thumbnail": "https://picsum.photos/seed/osu/400/300"
+    "title": "spotify (osu edition)",
+    "description": "A popular rhythm game featuring a wide variety of music and challenging gameplay.",
+    "url": "https://osu.sayobot.cn/",
+    "thumbnail": "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
   },
   {
     "id": "space-waves",
     "title": "Space Waves",
     "description": "A fast-paced, neon-lit rhythm platformer where you navigate through challenging levels with precision and timing.",
     "url": "https://www.crazygames.com/embed/space-waves",
-    "thumbnail": "https://picsum.photos/seed/spacewaves/400/300"
+    "thumbnail": "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2022&auto=format&fit=crop"
   },
   {
     "id": "buildnow-gg",
     "title": "BuildNow GG",
     "description": "An online build-and-shoot game featuring various game modes, weapons, and maps.",
     "url": "https://games.crazygames.com/en_US/buildnow-gg/index.html?v=1.354",
-    "thumbnail": "https://picsum.photos/seed/buildnow/400/300"
+    "thumbnail": "https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=400&h=300&auto=format&fit=crop"
+  },
+  {
+    "id": "osu-mania",
+    "title": "bemuse (piano osu)",
+    "description": "A high-performance web-based rhythm game with vertical scrolling notes, similar to Osu! Mania.",
+    "url": "https://bemuse.ninja/",
+    "thumbnail": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070&auto=format&fit=crop"
   }
 ]
