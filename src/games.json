@@ -26,5 +26,27 @@
     "description": "A high-performance web-based rhythm game with vertical scrolling notes, similar to Osu! Mania.",
     "url": "https://bemuse.ninja/",
     "thumbnail": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    "id": "geometry-dash-lite",
+    "title": "Geometry Dash Lite",
+    "description": "Jump and fly your way through danger in this rhythm-based action platformer!",
+    "url": "https://selenite.cc/loader.html?title=Geometry%20Dash%20Lite&dir=gdlite&img=logo.png&type=g",
+    "thumbnail": "https://logos-world.net/wp-content/uploads/2022/05/Geometry-Dash-Logo.png"
+  },
+  {
+    "id": "baldis-basics",
+    "title": "Baldi's Basics",
+    "description": "A meta horror game that's really weird, with no real educational value to be found.",
+    "url": "https://selenite.cc/loader.html?title=Baldi%27s%20Basics&dir=baldis-basics&img=splash.png&type=g",
+    "thumbnail": "https://img.itch.zone/aW1nLzMxNzgwNTUucG5n/original/GLvl/m.png"
+  },
+  {
+    "id": "bitlife",
+    "title": "Bitlife",
+    "description": "Live your life how you want to in this text-based life simulator!",
+    "url": "https://selenite.cc/loader.html?title=Bitlife&dir=bitlife&img=bitlife.png&type=g",
+    "thumbnail": "https://w8.snokido.com/img/large/bitlife.jpg"
+
   }
 ]

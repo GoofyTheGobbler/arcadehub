@@ -102,6 +102,32 @@ export default function App() {
       border: 'border-rose-900',
       header: 'bg-zinc-950/90'
     },
+    { 
+      name: 'Sapphire', 
+      primary: 'blue-500', 
+      primaryHover: 'blue-400', 
+      accent: 'blue-600', 
+      shadow: 'rgba(59,130,246,0.3)',
+      bg: 'bg-black',
+      text: 'text-blue-400',
+      heading: 'text-blue-500',
+      card: 'bg-slate-900',
+      border: 'border-blue-900/50',
+      header: 'bg-black/90'
+    },
+    { 
+      name: 'Hacker', 
+      primary: 'emerald-500', 
+      primaryHover: 'emerald-400', 
+      accent: 'emerald-600', 
+      shadow: 'rgba(16,185,129,0.3)',
+      bg: 'bg-black',
+      text: 'text-emerald-500',
+      heading: 'text-emerald-400',
+      card: 'bg-black',
+      border: 'border-emerald-900/50',
+      header: 'bg-black/90'
+    },
   ];
 
   const handleSetGame = (game) => {
@@ -341,9 +367,14 @@ export default function App() {
           </div>
           <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-700'} text-[10px] uppercase font-bold tracking-widest`}>© 2026 67 games. All rights reserved.</p>
           <div className={`flex gap-8 text-[10px] font-black uppercase tracking-widest ${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-500'}`}>
-            <a href="#" className={`hover:text-${currentTheme.primaryHover} transition-colors`}>Privacy</a>
-            <a href="#" className={`hover:text-${currentTheme.primaryHover} transition-colors`}>Terms</a>
-            <a href="#" className={`hover:text-${currentTheme.primaryHover} transition-colors`}>Contact</a>
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeO6LlDXeJJ5olG5UyTXYmzplrO637iIOyb8lH1KOaXcTPK-w/viewform?usp=preview" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`hover:text-${currentTheme.primaryHover} transition-colors`}
+            >
+              Suggest A Game
+            </a>
           </div>
         </div>
       </footer>
