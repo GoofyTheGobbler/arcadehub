@@ -1,13 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Gamepad2, ArrowLeft, Play, Info, ExternalLink, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Play, Info, ExternalLink, Search } from 'lucide-react';
 import gamesData from './games.json';
-import { generateLogo } from './logoGenerator';
 
 export default function App() {
   const [selectedGame, setSelectedGame] = useState(null);
-  const [customLogo, setCustomLogo] = useState(null);
-  const [isGeneratingLogo, setIsGeneratingLogo] = useState(false);
   const [currentTheme, setCurrentTheme] = useState({
     name: 'Default',
     primary: 'green-500',
@@ -22,6 +19,11 @@ export default function App() {
     header: 'bg-slate-900/50'
   });
   const [view, setView] = useState('library'); // 'library' or 'themes'
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredGames = gamesData.filter(game => 
+    game.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const themes = [
     { 
@@ -128,30 +130,38 @@ export default function App() {
       border: 'border-emerald-900/50',
       header: 'bg-black/90'
     },
+    { 
+      name: 'Void', 
+      primary: 'purple-600', 
+      primaryHover: 'purple-500', 
+      accent: 'purple-700', 
+      shadow: 'rgba(147,51,234,0.4)',
+      bg: 'bg-black',
+      text: 'text-purple-400',
+      heading: 'text-purple-500',
+      card: 'bg-zinc-950',
+      border: 'border-purple-900/50',
+      header: 'bg-black/95'
+    },
+    { 
+      name: 'UwU', 
+      primary: 'white', 
+      primaryHover: 'slate-100', 
+      accent: 'white', 
+      shadow: 'rgba(255,255,255,0.4)',
+      bg: 'bg-pink-400',
+      text: 'text-white',
+      heading: 'text-white',
+      card: 'bg-pink-500/40',
+      border: 'border-white/40',
+      header: 'bg-pink-400/90'
+    },
   ];
 
   const handleSetGame = (game) => {
     setSelectedGame(game);
     setView('library');
   };
-
-  const handleGenerateLogo = async () => {
-    setIsGeneratingLogo(true);
-    try {
-      const base64 = await generateLogo();
-      if (base64) {
-        setCustomLogo(`data:image/png;base64,${base64}`);
-      }
-    } catch (error) {
-      console.error("Failed to generate logo:", error);
-    } finally {
-      setIsGeneratingLogo(false);
-    }
-  };
-
-  useEffect(() => {
-    handleGenerateLogo();
-  }, []);
 
   return (
     <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} font-sans selection:bg-${currentTheme.primary}/30 transition-colors duration-500`}>
@@ -160,54 +170,129 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div 
             className="flex items-center gap-2 cursor-pointer group"
-            onClick={() => { setSelectedGame(null); setView('library'); }}
+            onClick={() => { setSelectedGame(null); setView('library'); setSearchQuery(''); }}
           >
-            <div className={`bg-${currentTheme.accent} p-2 rounded-lg transition-colors shadow-[0_0_15px_${currentTheme.shadow}] overflow-hidden relative group`}>
-              {isGeneratingLogo ? (
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <RefreshCw className="w-5 h-5 animate-spin text-white" />
-                </div>
-              ) : (
-                <img 
-                  src={customLogo || "https://tr.rbxcdn.com/180da672804f58544d6582312676f44d/420/420/Image/Png"} 
-                  alt="67 Logo" 
-                  className="w-8 h-8 object-contain"
-                  referrerPolicy="no-referrer"
-                />
-              )}
-              <button 
-                onClick={(e) => { e.stopPropagation(); handleGenerateLogo(); }}
-                className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
-                title="Regenerate Logo"
-              >
-                <RefreshCw className="w-4 h-4 text-white" />
-              </button>
+            <div className={`bg-${currentTheme.primary} p-1 rounded-lg transition-colors shadow-[0_0_15px_${currentTheme.shadow}] flex items-center justify-center overflow-hidden`}>
+              <img 
+                src="global000054e2aa70026d0000015f20.png" 
+                alt="67 Games Logo" 
+                className="w-8 h-8 object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <h1 className={`text-xl font-bold tracking-tighter ${currentTheme.heading} uppercase italic`}>67 games</h1>
+            <h1 className={`text-xl font-bold tracking-tighter ${currentTheme.heading} uppercase italic`}>
+              {searchQuery ? `${filteredGames.length} results` : `${gamesData.length} games`}
+            </h1>
+          </div>
+
+          <div className="relative flex-1 max-w-md mx-4">
+            <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-500'}`} />
+            <input 
+              type="text"
+              placeholder="Search games..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={`w-full pl-10 pr-4 py-2 text-sm rounded-lg border ${currentTheme.border} ${currentTheme.card} focus:outline-none focus:border-${currentTheme.primary} transition-colors ${currentTheme.text}`}
+            />
+            {searchQuery && (
+              <button 
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors"
+              >
+                ×
+              </button>
+            )}
           </div>
           
           <nav className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-slate-400">
             <button 
-              onClick={() => { setSelectedGame(null); setView('library'); }} 
+              onClick={() => { setSelectedGame(null); setView('library'); setSearchQuery(''); }} 
               className={`transition-colors ${view === 'library' ? `text-${currentTheme.primary}` : `hover:text-${currentTheme.primaryHover}`}`}
             >
               Library
             </button>
             <button 
-              onClick={() => { setSelectedGame(null); setView('themes'); }} 
+              onClick={() => { setSelectedGame(null); setView('themes'); setSearchQuery(''); }} 
               className={`transition-colors ${view === 'themes' ? `text-${currentTheme.primary}` : `hover:text-${currentTheme.primaryHover}`}`}
             >
               Themes
             </button>
-            <a href="#" className={`hover:text-${currentTheme.primaryHover} transition-colors`}>Categories</a>
-            <a href="#" className={`hover:text-${currentTheme.primaryHover} transition-colors`}>About</a>
+            <button 
+              onClick={() => { setSelectedGame(null); setView('about'); setSearchQuery(''); }} 
+              className={`transition-colors ${view === 'about' ? `text-${currentTheme.primary}` : `hover:text-${currentTheme.primaryHover}`}`}
+            >
+              About
+            </button>
           </nav>
         </div>
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <AnimatePresence mode="wait">
-          {view === 'themes' ? (
+          {view === 'about' ? (
+            <motion.div
+              key="about"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="py-12"
+            >
+              <div className={`mb-12 border-l-4 border-${currentTheme.primary} pl-6`}>
+                <h2 className={`text-4xl font-black ${currentTheme.heading} mb-2 uppercase tracking-tighter`}>About 67 Games</h2>
+                <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-600' : 'text-slate-500'} font-medium`}>The ultimate destination for web-based gaming.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className={`${currentTheme.card} border ${currentTheme.border} p-8 space-y-6`}>
+                    <h3 className={`text-2xl font-black ${currentTheme.heading} uppercase tracking-tight`}>My Mission</h3>
+                    <p className="leading-relaxed">
+                      67 games was made because school makes us do work even when we have nothing to do such as reading, free draw, or sit there like a bum. and im a kinda quiet kid with nothing much to do at a random school in the terrible school system in place so use this while you can before you are silenced :D
+                    </p>
+                  </div>
+
+                  <div className={`${currentTheme.card} border ${currentTheme.border} p-8 space-y-6`}>
+                    <h3 className={`text-2xl font-black ${currentTheme.heading} uppercase tracking-tight`}>About the Developer</h3>
+                    <p className="leading-relaxed">
+                      Im just a quiet kid who gets bored out of his mind a lot, unfortunately i can not tell anyone who i am because i dont want my cheeks getting spanked but i will let you know that i appreciate yall supporting the website ive spent over 24 hours total and only a few people will really know who made this.. maybe your one of them maybe your not ;)
+                    </p>
+                  </div>
+
+                <div className="space-y-8">
+                  <div className={`${currentTheme.card} border ${currentTheme.border} p-8`}>
+                    <h3 className={`text-xl font-black ${currentTheme.heading} uppercase tracking-tight mb-4`}>Key Features</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <div className={`mt-1 w-2 h-2 rounded-full bg-${currentTheme.primary}`} />
+                        <span><strong className={currentTheme.heading}>Visual Themes:</strong> Personalize your experience with our built-in theme engine.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className={`mt-1 w-2 h-2 rounded-full bg-${currentTheme.primary}`} />
+                        <span><strong className={currentTheme.heading}>Fast Search:</strong> Find your favorite games instantly with our real-time filtering.</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className={`mt-1 w-2 h-2 rounded-full bg-${currentTheme.primary}`} />
+                        <span><strong className={currentTheme.heading}>Curated Library:</strong> No filler, just high-quality games that work.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className={`${currentTheme.card} border-2 border-${currentTheme.primary} p-8 shadow-[0_0_20px_${currentTheme.shadow}]`}>
+                    <h3 className={`text-xl font-black ${currentTheme.heading} uppercase tracking-tight mb-2`}>Want to contribute?</h3>
+                    <p className={`font-medium mb-6 ${currentTheme.bg === 'bg-white' ? 'text-slate-600' : 'text-slate-400'}`}>if you have a game that you want me to add just let me know because i want to see new games get added so you can be entertained for a few minutes before getting caught :D</p>
+                    <a 
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSeO6LlDXeJJ5olG5UyTXYmzplrO637iIOyb8lH1KOaXcTPK-w/viewform?usp=preview" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className={`inline-block bg-transparent border-2 border-${currentTheme.primary} text-${currentTheme.primary} px-6 py-3 font-black uppercase tracking-tighter hover:bg-${currentTheme.primary} hover:text-black transition-all shadow-[0_0_15px_${currentTheme.shadow}]`}
+                    >
+                      Suggest a Game
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ) : view === 'themes' ? (
             <motion.div
               key="themes"
               initial={{ opacity: 0, x: 20 }}
@@ -259,9 +344,9 @@ export default function App() {
                 <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-600' : 'text-slate-500'} font-medium`}>Hand-picked favorites for you to enjoy.</p>
               </div>
 
-              {gamesData.length > 0 ? (
+              {filteredGames.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {gamesData.map((game) => (
+                  {filteredGames.map((game) => (
                     <motion.div
                       key={game.id}
                       whileHover={{ y: -5 }}
@@ -301,7 +386,12 @@ export default function App() {
                 </div>
               ) : (
                 <div className={`flex flex-col items-center justify-center py-24 ${currentTheme.card} border ${currentTheme.border}`}>
-                  <Gamepad2 className={`w-16 h-16 ${currentTheme.bg === 'bg-white' ? 'text-slate-200' : 'text-slate-800'} mb-4`} />
+                  <img 
+                    src="global000054e2aa70026d0000015f20.png" 
+                    alt="No games" 
+                    className="w-24 h-24 object-contain mb-4 opacity-20 grayscale"
+                    referrerPolicy="no-referrer"
+                  />
                   <h3 className={`text-xl font-black ${currentTheme.heading} mb-2 uppercase tracking-tighter`}>No games found</h3>
                   <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-600'} font-medium`}>Check back later for new additions!</p>
                 </div>
@@ -360,10 +450,15 @@ export default function App() {
       <footer className={`mt-20 border-t ${currentTheme.border} py-16 ${currentTheme.bg} transition-colors duration-500`}>
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-2">
-            <div className={`w-8 h-8 bg-${currentTheme.primary} flex items-center justify-center`}>
-              <Gamepad2 className={`w-5 h-5 ${currentTheme.bg === 'bg-white' ? 'text-white' : 'text-black'}`} />
+            <div className={`w-10 h-10 bg-${currentTheme.primary} flex items-center justify-center rounded-lg overflow-hidden p-1`}>
+              <img 
+                src="global000054e2aa70026d0000015f20.png" 
+                alt="67 Games Logo" 
+                className="w-full h-full object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <span className={`font-black ${currentTheme.heading} uppercase italic tracking-tighter`}>67 games</span>
+            <span className={`font-black ${currentTheme.heading} uppercase italic tracking-tighter`}>{gamesData.length} games</span>
           </div>
           <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-700'} text-[10px] uppercase font-bold tracking-widest`}>© 2026 67 games. All rights reserved.</p>
           <div className={`flex gap-8 text-[10px] font-black uppercase tracking-widest ${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-500'}`}>

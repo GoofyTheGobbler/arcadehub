@@ -47,6 +47,68 @@
     "description": "Live your life how you want to in this text-based life simulator!",
     "url": "https://selenite.cc/loader.html?title=Bitlife&dir=bitlife&img=bitlife.png&type=g",
     "thumbnail": "https://w8.snokido.com/img/large/bitlife.jpg"
-
+  },
+  {
+    "id": "cookie-clicker",
+    "title": "Cookie Clicker",
+    "description": "The original idle game where you bake an absurd amount of cookies!",
+    "url": "https://selenite.cc/loader.html?title=Cookie%20Clicker&dir=cookieclicker&img=img/perfectCookie.png&type=g",
+    "thumbnail": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&h=300&auto=format&fit=crop"
+  },
+  {
+    "id": "fnaf",
+    "title": "Five Nights at Freddy's",
+    "description": "Can you survive five nights at Freddy Fazbear's Pizza?",
+    "url": "https://selenite.cc/loader.html?title=Five%20Nights%20at%20Freddy%27s&dir=fnaf&img=splash.jpg&type=g",
+    "thumbnail": "https://preview.redd.it/my-fnaf-logo-design-v0-u7h1a64tkxzb1.png?auto=webp&s=f54d2aec447642d91051322eb8ee840e90793759"
+  },
+  {
+    "id": "spank-the-monkey",
+    "title": "Spank the Monkey",
+    "description": "A classic flash game where you test your speed and strength to see how fast you can spank the monkey!",
+    "url": "https://selenite.cc/loader.html?title=Spank%20the%20Monkey&dir=spankthemonkey&img=cover.png&type=g",
+    "thumbnail": "https://i.ytimg.com/vi/UAXG9T8fZEY/maxresdefault.jpg"
+  },
+  {
+    "id": "slope",
+    "title": "Slope",
+    "description": "Drive a ball in the 3D running game in Slope Game. Easy to control, high speed, and addictive gameplay.",
+    "url": "https://selenite.cc/loader.html?title=Slope&dir=slope&img=slope4.jpeg&type=g",
+    "thumbnail": "https://sloperun.org/data/image/posts/slope-image.jpg"
+  },
+  {
+    "id": "run-3",
+    "title": "Run 3",
+    "description": "Run, jump, and ignore the laws of physics in this gravity-defying space runner!",
+    "url": "https://selenite.cc/loader.html?title=Run%203&dir=run3&img=icon.jpeg&type=g",
+    "thumbnail": "https://www.coolmathgames.com/sites/default/files/Run3_OG-logo.jpg"
+  },
+  {
+    "id": "funny-shooter-2",
+    "title": "Funny Shooter 2",
+    "description": "A fun and wacky first-person shooter where you fight off waves of strange enemies with various weapons!",
+    "url": "https://selenite.cc/loader.html?title=Funny%20Shooter%202&dir=funnyshooter2&img=894abba63a6b23fed823f404831f444f.jpeg&type=g",
+    "thumbnail": "https://w8.snokido.com/img/large/funny-shooter-2.jpg"
+  },
+  {
+    "id": "adventure-capitalist",
+    "title": "Adventure Capitalist",
+    "description": "The world's greatest capitalism simulator! Start with a single lemonade stand and work your way up to global domination.",
+    "url": "https://selenite.cc/loader.html?title=Adventure%20Capitalist&dir=adventure-capitalist&img=logo.webp&type=g",
+    "thumbnail": "https://www.gamerinfo.com.br/wp-content/uploads/2022/07/AdVenture_Capitalist.jpg"
+  },
+  {
+    "id": "death-run-3d",
+    "title": "Death Run 3D",
+    "description": "A fast-paced running game where you navigate through a tunnel filled with obstacles. Test your reflexes and see how far you can go!",
+    "url": "https://selenite.cc/loader.html?title=Death%20Run%203D&dir=death-run-3d&img=img/death.png&type=g",
+    "thumbnail": "https://onlinevgames.com/wp-content/uploads/2024/11/Death-Run-3D.webp"
+  },
+  {
+    "id": "fnaf-world",
+    "title": "Five Nights at Freddy's World",
+    "description": "Take control of Freddy and the gang in this RPG spin-off of the popular horror series!",
+    "url": "https://selenite.cc/loader.html?title=Five%20Nights%20at%20Freddy%27s%20World&dir=fnafworld&img=favicon.ico&type=g",
+    "thumbnail": "https://cdn.vox-cdn.com/thumbor/rG-tZ4d_IZxXj4ty47iO0FhU_1Y=/0x0:715x393/1200x800/filters:focal(301x140:415x254)/cdn.vox-cdn.com/uploads/chorus_image/image/48797731/Screenshot_202016-02-12_2011.48.18.0.png"
   }
 ]
