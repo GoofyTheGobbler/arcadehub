@@ -175,7 +175,7 @@ export default function App() {
             <div className={`bg-${currentTheme.primary} p-1 rounded-lg transition-colors shadow-[0_0_15px_${currentTheme.shadow}] flex items-center justify-center overflow-hidden`}>
               <img 
                 src="global000054e2aa70026d0000015f20.png" 
-                alt="67 Games Logo" 
+                alt="Goofy Goober Games Logo" 
                 className="w-8 h-8 object-contain"
                 referrerPolicy="no-referrer"
               />
@@ -239,7 +239,7 @@ export default function App() {
               className="py-12"
             >
               <div className={`mb-12 border-l-4 border-${currentTheme.primary} pl-6`}>
-                <h2 className={`text-4xl font-black ${currentTheme.heading} mb-2 uppercase tracking-tighter`}>About 67 Games</h2>
+                <h2 className={`text-4xl font-black ${currentTheme.heading} mb-2 uppercase tracking-tighter`}>About Goofy Goober Games</h2>
                 <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-600' : 'text-slate-500'} font-medium`}>The ultimate destination for web-based gaming.</p>
               </div>
 
@@ -247,7 +247,7 @@ export default function App() {
                   <div className={`${currentTheme.card} border ${currentTheme.border} p-8 space-y-6`}>
                     <h3 className={`text-2xl font-black ${currentTheme.heading} uppercase tracking-tight`}>My Mission</h3>
                     <p className="leading-relaxed">
-                      67 games was made because school makes us do work even when we have nothing to do such as reading, free draw, or sit there like a bum. and im a kinda quiet kid with nothing much to do at a random school in the terrible school system in place so use this while you can before you are silenced :D
+                      Goofy Goober Games was made because school makes us do work even when we have nothing to do such as reading, free draw, or sit there like a bum. and im a kinda quiet kid with nothing much to do at a random school in the terrible school system in place so use this while you can before you are silenced :D
                     </p>
                   </div>
 
@@ -453,14 +453,14 @@ export default function App() {
             <div className={`w-10 h-10 bg-${currentTheme.primary} flex items-center justify-center rounded-lg overflow-hidden p-1`}>
               <img 
                 src="global000054e2aa70026d0000015f20.png" 
-                alt="67 Games Logo" 
+                alt="Goofy Goober Games Logo" 
                 className="w-full h-full object-contain"
                 referrerPolicy="no-referrer"
               />
             </div>
             <span className={`font-black ${currentTheme.heading} uppercase italic tracking-tighter`}>{gamesData.length} games</span>
           </div>
-          <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-700'} text-[10px] uppercase font-bold tracking-widest`}>© 2026 67 games. All rights reserved.</p>
+          <p className={`${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-700'} text-[10px] uppercase font-bold tracking-widest`}>© 2026 Goofy Goober Games. All rights reserved.</p>
           <div className={`flex gap-8 text-[10px] font-black uppercase tracking-widest ${currentTheme.bg === 'bg-white' ? 'text-slate-400' : 'text-slate-500'}`}>
             <a 
               href="https://docs.google.com/forms/d/e/1FAIpQLSeO6LlDXeJJ5olG5UyTXYmzplrO637iIOyb8lH1KOaXcTPK-w/viewform?usp=preview" 
